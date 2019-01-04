@@ -13,7 +13,7 @@ The default port of 8080 can be overriden using the `PORT` environment variable.
 
 It is available on DockerHub as:
 
-- [infovein69/helloworld](https://hub.docker.com/r/infovein69/helloworld)
+- [sreekanthbg/helloworld](https://hub.docker.com/r/sreekanthbg/helloworld)
 
 ## Deploy
 
@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
       - name: hello-kubernetes
-        image: infovein69/helloworld
+        image: sreekanthbg/helloworld
         ports:
         - containerPort: 8080
 ```
@@ -64,7 +64,7 @@ $ kubectl apply -f yaml/hello-kubernetes.yaml
 Or, deploy by executing the following `run` and `expose` commands on `kubectl`. 
 
 ```bash
-$ kubectl run hello-kubernetes --replicas=3 --image=infovein69/helloworld --port=8080
+$ kubectl run hello-kubernetes --replicas=3 --image=sreekanthbg/helloworld --port=8080
 $ kubectl expose deployment hello-kubernetes --type=LoadBalancer --port=80 --target-port=8080 --name=hello-kubernetes
 ```
 
@@ -113,7 +113,7 @@ spec:
     spec:
       containers:
       - name: hello-kubernetes
-        image: infovein69/helloworld
+        image: sreekanthbg/helloworld
         ports:
         - containerPort: 8080
         env:
@@ -155,7 +155,7 @@ spec:
     spec:
       containers:
       - name: hello-kubernetes
-        image: paulbouwer/hello-kubernetes:1.5
+        image: sreekanthbg/helloworld
         ports:
         - containerPort: 80
         env:
