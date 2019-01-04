@@ -13,7 +13,7 @@ The default port of 8080 can be overriden using the `PORT` environment variable.
 
 It is available on DockerHub as:
 
-- [paulbouwer/hello-kubernetes:1.5](https://hub.docker.com/r/paulbouwer/hello-kubernetes/)
+- [infovein69/helloworld](https://hub.docker.com/r/infovein69/helloworld)
 
 ## Deploy
 
@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
       - name: hello-kubernetes
-        image: paulbouwer/hello-kubernetes:1.5
+        image: infovein69/helloworld
         ports:
         - containerPort: 8080
 ```
@@ -64,7 +64,7 @@ $ kubectl apply -f yaml/hello-kubernetes.yaml
 Or, deploy by executing the following `run` and `expose` commands on `kubectl`. 
 
 ```bash
-$ kubectl run hello-kubernetes --replicas=3 --image=paulbouwer/hello-kubernetes:1.5 --port=8080
+$ kubectl run hello-kubernetes --replicas=3 --image=infovein69/helloworld --port=8080
 $ kubectl expose deployment hello-kubernetes --type=LoadBalancer --port=80 --target-port=8080 --name=hello-kubernetes
 ```
 
@@ -113,7 +113,7 @@ spec:
     spec:
       containers:
       - name: hello-kubernetes
-        image: paulbouwer/hello-kubernetes:1.5
+        image: infovein69/helloworld
         ports:
         - containerPort: 8080
         env:
@@ -128,7 +128,7 @@ $ kubectl apply -f yaml/hello-kubernetes.custom-message.yaml
 Or, deploy by executing the following `run` and `expose` commands on `kubectl`, with the environment variable `MESSAGE` provided as part of the `run` command.
 
 ```bash
-$ kubectl run hello-kubernetes --replicas=3 --image=paulbouwer/hello-kubernetes:1.5 --port=8080 --env="MESSAGE=I just deployed this on Kubernetes!"
+$ kubectl run hello-kubernetes --replicas=3 --image=infovein69/helloworld --port=8080 --env="MESSAGE=I just deployed this on Kubernetes!"
 $ kubectl expose deployment hello-kubernetes --type=LoadBalancer --port=80 --target-port=8080 --name=hello-kubernetes
 ```
 
@@ -175,5 +175,5 @@ $ docker build --no-cache --build-arg IMAGE_VERSION="1.5" --build-arg IMAGE_CREA
 
 Powershell
 ```powershell
-PS> docker build --no-cache --build-arg IMAGE_VERSION="1.5" --build-arg IMAGE_CREATE_DATE="$(Get-Date((Get-Date).ToUniversalTime()) -UFormat '%Y-%m-%dT%H:%M:%SZ')" --build-arg IMAGE_SOURCE_REVISION="$(git rev-parse HEAD)" -f Dockerfile -t "hello-kubernetes:1.5" .
+PS> docker build --no-cache --build-arg IMAGE_VERSION="latest" --build-arg IMAGE_CREATE_DATE="$(Get-Date((Get-Date).ToUniversalTime()) -UFormat '%Y-%m-%dT%H:%M:%SZ')" --build-arg IMAGE_SOURCE_REVISION="$(git rev-parse HEAD)" -f Dockerfile -t "hello-kubernetes" .
 ```
