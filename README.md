@@ -128,7 +128,7 @@ $ kubectl apply -f yaml/hello-kubernetes.custom-message.yaml
 Or, deploy by executing the following `run` and `expose` commands on `kubectl`, with the environment variable `MESSAGE` provided as part of the `run` command.
 
 ```bash
-$ kubectl run hello-kubernetes --replicas=3 --image=infovein69/helloworld --port=8080 --env="MESSAGE=I just deployed this on Kubernetes!"
+$ kubectl run hello-kubernetes --replicas=3 --image=sreekanthbg/helloworld --port=8080 --env="MESSAGE=I just deployed this on Kubernetes!"
 $ kubectl expose deployment hello-kubernetes --type=LoadBalancer --port=80 --target-port=8080 --name=hello-kubernetes
 ```
 
